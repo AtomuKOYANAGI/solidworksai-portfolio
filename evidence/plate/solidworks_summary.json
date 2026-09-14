@@ -1,0 +1,34 @@
+{
+  "record_kind": "historical_evidence_excerpt",
+  "cad_rerun_for_portfolio": false,
+  "source_snapshot_commit": "969222c577e86bd98e5947673d1571b5c8bf9816",
+  "step_generation": {
+    "completed_at_utc": "2026-08-02T03:44:24.079609Z",
+    "status": "succeeded",
+    "build123d_version": "0.11.1",
+    "external_llm_used": false
+  },
+  "after_sldprt_reopen": {
+    "bounding_box_size_mm": [
+      100,
+      60,
+      10
+    ],
+    "cylindrical_face_radii_mm": [
+      4,
+      4
+    ],
+    "solid_count": 1,
+    "volume_mm3": 58994.69035085126
+  },
+  "sources": [
+    {
+      "path": "artifacts/latest/plate-two-holes-04778f5c73de/solidworks_validation.json",
+      "source_blob_sha": "2d972c2887bf9561d30d7b8501f1f6fbc1156116"
+    },
+    {
+      "path": "artifacts/latest/plate-two-holes-04778f5c73de/run_summary.json",
+      "source_blob_sha": "854b59f97b0f12e221ee3d2f1dd839a35378312c"
+    }
+  ]
+}

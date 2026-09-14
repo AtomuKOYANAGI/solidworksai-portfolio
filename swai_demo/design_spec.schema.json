@@ -1,0 +1,335 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://solidworksai.local/schema/fast-mvp-design-spec-v1.json",
+  "title": "SolidWorksAI Fast MVP DesignSpec v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "design_id",
+    "source",
+    "generation",
+    "units",
+    "base",
+    "features",
+    "verification"
+  ],
+  "properties": {
+    "schema_version": {"const": "fast-mvp/design-spec/1.0"},
+    "design_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{2,79}$"
+    },
+    "source": {"$ref": "#/$defs/source"},
+    "generation": {"$ref": "#/$defs/generation"},
+    "units": {"const": "mm"},
+    "base": {"$ref": "#/$defs/base"},
+    "features": {
+      "type": "array",
+      "maxItems": 64,
+      "items": {"$ref": "#/$defs/feature"}
+    },
+    "verification": {"$ref": "#/$defs/verification"}
+  },
+  "$defs": {
+    "positive": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "maximum": 1000000
+    },
+    "coordinate": {
+      "type": "number",
+      "minimum": -1000000,
+      "maximum": 1000000
+    },
+    "point2": {
+      "type": "array",
+      "prefixItems": [
+        {"$ref": "#/$defs/coordinate"},
+        {"$ref": "#/$defs/coordinate"}
+      ],
+      "items": false,
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["request_sha256", "language", "input_units"],
+      "properties": {
+        "request_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "language": {"enum": ["ja", "en", "structured"]},
+        "input_units": {"enum": ["mm", "inch"]}
+      }
+    },
+    "generation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["route", "template_id"],
+      "properties": {
+        "route": {
+          "enum": ["deterministic_template", "provider_design_spec"]
+        },
+        "template_id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9_-]{2,79}$"
+        }
+      }
+    },
+    "base": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "width_mm", "depth_mm", "height_mm"],
+          "properties": {
+            "kind": {"const": "box"},
+            "width_mm": {"$ref": "#/$defs/positive"},
+            "depth_mm": {"$ref": "#/$defs/positive"},
+            "height_mm": {"$ref": "#/$defs/positive"}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "diameter_mm", "height_mm"],
+          "properties": {
+            "kind": {"const": "cylinder"},
+            "diameter_mm": {"$ref": "#/$defs/positive"},
+            "height_mm": {"$ref": "#/$defs/positive"}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "outer_diameter_mm",
+            "inner_diameter_mm",
+            "height_mm"
+          ],
+          "properties": {
+            "kind": {"const": "tube"},
+            "outer_diameter_mm": {"$ref": "#/$defs/positive"},
+            "inner_diameter_mm": {"$ref": "#/$defs/positive"},
+            "height_mm": {"$ref": "#/$defs/positive"}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "vertices_mm", "height_mm"],
+          "properties": {
+            "kind": {"const": "prism"},
+            "vertices_mm": {
+              "type": "array",
+              "items": {"$ref": "#/$defs/point2"},
+              "minItems": 3,
+              "maxItems": 32
+            },
+            "height_mm": {"$ref": "#/$defs/positive"}
+          }
+        }
+      ]
+    },
+    "circle_profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "purpose", "center_mm", "diameter_mm"],
+      "properties": {
+        "kind": {"const": "circle"},
+        "purpose": {"enum": ["hole", "generic"]},
+        "center_mm": {"$ref": "#/$defs/point2"},
+        "diameter_mm": {"$ref": "#/$defs/positive"}
+      }
+    },
+    "rectangle_profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "purpose",
+        "center_mm",
+        "width_mm",
+        "depth_mm",
+        "angle_deg"
+      ],
+      "properties": {
+        "kind": {"const": "rectangle"},
+        "purpose": {"const": "generic"},
+        "center_mm": {"$ref": "#/$defs/point2"},
+        "width_mm": {"$ref": "#/$defs/positive"},
+        "depth_mm": {"$ref": "#/$defs/positive"},
+        "angle_deg": {
+          "type": "number",
+          "minimum": -360,
+          "maximum": 360
+        }
+      }
+    },
+    "slot_profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "purpose",
+        "center_mm",
+        "length_mm",
+        "width_mm",
+        "angle_deg"
+      ],
+      "properties": {
+        "kind": {"const": "slot"},
+        "purpose": {"enum": ["slot", "generic"]},
+        "center_mm": {"$ref": "#/$defs/point2"},
+        "length_mm": {"$ref": "#/$defs/positive"},
+        "width_mm": {"$ref": "#/$defs/positive"},
+        "angle_deg": {
+          "type": "number",
+          "minimum": -360,
+          "maximum": 360
+        }
+      }
+    },
+    "profile": {
+      "oneOf": [
+        {"$ref": "#/$defs/circle_profile"},
+        {"$ref": "#/$defs/rectangle_profile"},
+        {"$ref": "#/$defs/slot_profile"}
+      ]
+    },
+    "extent": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind"],
+          "properties": {"kind": {"const": "through_all"}}
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "distance_mm"],
+          "properties": {
+            "kind": {"const": "distance"},
+            "distance_mm": {"$ref": "#/$defs/positive"}
+          }
+        }
+      ]
+    },
+    "pattern": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "instances",
+            "spacing_mm",
+            "direction_deg",
+            "centered"
+          ],
+          "properties": {
+            "kind": {"const": "linear"},
+            "instances": {
+              "type": "integer",
+              "minimum": 2,
+              "maximum": 100
+            },
+            "spacing_mm": {"$ref": "#/$defs/positive"},
+            "direction_deg": {
+              "type": "number",
+              "minimum": -360,
+              "maximum": 360
+            },
+            "centered": {"type": "boolean"}
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "instances",
+            "center_mm",
+            "total_angle_deg"
+          ],
+          "properties": {
+            "kind": {"const": "circular"},
+            "instances": {
+              "type": "integer",
+              "minimum": 2,
+              "maximum": 100
+            },
+            "center_mm": {"$ref": "#/$defs/point2"},
+            "total_angle_deg": {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 360
+            }
+          }
+        }
+      ]
+    },
+    "extrude_feature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "operation", "profile", "extent"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]{2,63}$"
+        },
+        "operation": {"enum": ["add_extrude", "cut_extrude"]},
+        "profile": {"$ref": "#/$defs/profile"},
+        "extent": {"$ref": "#/$defs/extent"},
+        "pattern": {"$ref": "#/$defs/pattern"}
+      }
+    },
+    "modifier_feature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "operation", "selection", "size_mm"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]{2,63}$"
+        },
+        "operation": {"enum": ["fillet", "chamfer"]},
+        "selection": {"enum": ["vertical_edges", "top_outer_edges"]},
+        "size_mm": {"$ref": "#/$defs/positive"}
+      }
+    },
+    "feature": {
+      "oneOf": [
+        {"$ref": "#/$defs/extrude_feature"},
+        {"$ref": "#/$defs/modifier_feature"}
+      ]
+    },
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "dimension_tolerance_mm",
+        "volume_relative_tolerance",
+        "expected_solid_count"
+      ],
+      "properties": {
+        "dimension_tolerance_mm": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1
+        },
+        "volume_relative_tolerance": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 0.01
+        },
+        "expected_solid_count": {"const": 1}
+      }
+    }
+  }
+}

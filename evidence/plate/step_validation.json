@@ -1,0 +1,374 @@
+{
+  "artifact": {
+    "path": "model.step",
+    "sha256": "2692778caa142598c506471473a691ed1467ea33f3e63eb0a892a102ffefd84c",
+    "size_bytes": 24911
+  },
+  "checks": [
+    {
+      "expected": true,
+      "id": "brep_valid",
+      "measured": true,
+      "status": "passed"
+    },
+    {
+      "expected": 1,
+      "id": "solid_count",
+      "measured": 1,
+      "status": "passed"
+    },
+    {
+      "expected": -50.0,
+      "id": "bounding_box_min_x",
+      "measured": -50.0,
+      "status": "passed",
+      "tolerance": {
+        "absolute_mm": 0.01
+      }
+    },
+    {
+      "expected": 50.0,
+      "id": "bounding_box_max_x",
+      "measured": 50.0,
+      "status": "passed",
+      "tolerance": {
+        "absolute_mm": 0.01
+      }
+    },
+    {
+      "expected": 100.0,
+      "id": "bounding_box_size_x",
+      "measured": 100.0,
+      "status": "passed",
+      "tolerance": {
+        "absolute_mm": 0.01
+      }
+    },
+    {
+      "expected": -30.0,
+      "id": "bounding_box_min_y",
+      "measured": -30.0,
+      "status": "passed",
+      "tolerance": {
+        "absolute_mm": 0.01
+      }
+    },
+    {
+      "expected": 30.0,
+      "id": "bounding_box_max_y",
+      "measured": 30.0,
+      "status": "passed",
+      "tolerance": {
+        "absolute_mm": 0.01
+      }
+    },
+    {
+      "expected": 60.0,
+      "id": "bounding_box_size_y",
+      "measured": 60.0,
+      "status": "passed",
+      "tolerance": {
+        "absolute_mm": 0.01
+      }
+    },
+    {
+      "expected": 0.0,
+      "id": "bounding_box_min_z",
+      "measured": 0.0,
+      "status": "passed",
+      "tolerance": {
+        "absolute_mm": 0.01
+      }
+    },
+    {
+      "expected": 10.0,
+      "id": "bounding_box_max_z",
+      "measured": 10.0,
+      "status": "passed",
+      "tolerance": {
+        "absolute_mm": 0.01
+      }
+    },
+    {
+      "expected": 10.0,
+      "id": "bounding_box_size_z",
+      "measured": 10.0,
+      "status": "passed",
+      "tolerance": {
+        "absolute_mm": 0.01
+      }
+    },
+    {
+      "expected": 58994.69035085126,
+      "id": "volume_mm3",
+      "measured": 58994.69035085124,
+      "status": "passed",
+      "tolerance": {
+        "absolute_mm3": 0.05899469035085126,
+        "relative": 1e-06
+      }
+    },
+    {
+      "expected": {
+        "center_mm": [
+          -30.0,
+          0.0
+        ],
+        "depth_mm": 10.0,
+        "diameter_mm": 8.0,
+        "end_condition": "through_all",
+        "feature_id": "hole_pattern_001"
+      },
+      "id": "hole_001_diameter_position_depth",
+      "measured": {
+        "axis_direction": [
+          -0.0,
+          -0.0,
+          -1.0
+        ],
+        "axis_position_mm": [
+          -30.0,
+          0.0,
+          -0.1
+        ],
+        "bounding_box_size_mm": [
+          8.0,
+          8.0,
+          10.0
+        ],
+        "diameter_mm": 8.0,
+        "index": 0
+      },
+      "status": "passed",
+      "tolerance": {
+        "absolute_mm": 0.01
+      }
+    },
+    {
+      "expected": {
+        "center_mm": [
+          30.0,
+          0.0
+        ],
+        "depth_mm": 10.0,
+        "diameter_mm": 8.0,
+        "end_condition": "through_all",
+        "feature_id": "hole_pattern_001"
+      },
+      "id": "hole_002_diameter_position_depth",
+      "measured": {
+        "axis_direction": [
+          -0.0,
+          -0.0,
+          -1.0
+        ],
+        "axis_position_mm": [
+          30.0,
+          0.0,
+          -0.1
+        ],
+        "bounding_box_size_mm": [
+          8.0,
+          8.0,
+          10.0
+        ],
+        "diameter_mm": 8.0,
+        "index": 1
+      },
+      "status": "passed",
+      "tolerance": {
+        "absolute_mm": 0.01
+      }
+    },
+    {
+      "expected": 2,
+      "id": "hole_count",
+      "measured": 2,
+      "status": "passed"
+    }
+  ],
+  "design_id": "plate-two-holes-04778f5c73de",
+  "expected": {
+    "bounding_box_mm": {
+      "max": [
+        50.0,
+        30.0,
+        10.0
+      ],
+      "min": [
+        -50.0,
+        -30.0,
+        0.0
+      ],
+      "size": [
+        100.0,
+        60.0,
+        10.0
+      ]
+    },
+    "holes": [
+      {
+        "center_mm": [
+          -30.0,
+          0.0
+        ],
+        "depth_mm": 10.0,
+        "diameter_mm": 8.0,
+        "end_condition": "through_all",
+        "feature_id": "hole_pattern_001"
+      },
+      {
+        "center_mm": [
+          30.0,
+          0.0
+        ],
+        "depth_mm": 10.0,
+        "diameter_mm": 8.0,
+        "end_condition": "through_all",
+        "feature_id": "hole_pattern_001"
+      }
+    ],
+    "modifiers": [],
+    "pre_modifier_volume_mm3": 58994.69035085126,
+    "slots": [],
+    "solid_count": 1,
+    "volume_mode": "analytic"
+  },
+  "matched_holes": [
+    {
+      "expected": {
+        "center_mm": [
+          -30.0,
+          0.0
+        ],
+        "depth_mm": 10.0,
+        "diameter_mm": 8.0,
+        "end_condition": "through_all",
+        "feature_id": "hole_pattern_001"
+      },
+      "feature_id": "hole_pattern_001",
+      "measured_face": {
+        "axis_direction": [
+          -0.0,
+          -0.0,
+          -1.0
+        ],
+        "axis_position_mm": [
+          -30.0,
+          0.0,
+          -0.1
+        ],
+        "bounding_box_size_mm": [
+          8.0,
+          8.0,
+          10.0
+        ],
+        "diameter_mm": 8.0,
+        "index": 0
+      }
+    },
+    {
+      "expected": {
+        "center_mm": [
+          30.0,
+          0.0
+        ],
+        "depth_mm": 10.0,
+        "diameter_mm": 8.0,
+        "end_condition": "through_all",
+        "feature_id": "hole_pattern_001"
+      },
+      "feature_id": "hole_pattern_001",
+      "measured_face": {
+        "axis_direction": [
+          -0.0,
+          -0.0,
+          -1.0
+        ],
+        "axis_position_mm": [
+          30.0,
+          0.0,
+          -0.1
+        ],
+        "bounding_box_size_mm": [
+          8.0,
+          8.0,
+          10.0
+        ],
+        "diameter_mm": 8.0,
+        "index": 1
+      }
+    }
+  ],
+  "matched_slots": [],
+  "measured": {
+    "bounding_box_mm": {
+      "max": [
+        50.0,
+        30.0,
+        10.0
+      ],
+      "min": [
+        -50.0,
+        -30.0,
+        0.0
+      ],
+      "size": [
+        100.0,
+        60.0,
+        10.0
+      ]
+    },
+    "cylindrical_faces": [
+      {
+        "axis_direction": [
+          -0.0,
+          -0.0,
+          -1.0
+        ],
+        "axis_position_mm": [
+          -30.0,
+          0.0,
+          -0.1
+        ],
+        "bounding_box_size_mm": [
+          8.0,
+          8.0,
+          10.0
+        ],
+        "diameter_mm": 8.0,
+        "index": 0
+      },
+      {
+        "axis_direction": [
+          -0.0,
+          -0.0,
+          -1.0
+        ],
+        "axis_position_mm": [
+          30.0,
+          0.0,
+          -0.1
+        ],
+        "bounding_box_size_mm": [
+          8.0,
+          8.0,
+          10.0
+        ],
+        "diameter_mm": 8.0,
+        "index": 1
+      }
+    ],
+    "edge_count": 18,
+    "face_count": 8,
+    "is_valid": true,
+    "solid_count": 1,
+    "volume_mm3": 58994.69035085124
+  },
+  "schema_version": "fast-mvp/validation/1.0",
+  "status": "passed",
+  "validator": {
+    "build123d_version": "0.11.1",
+    "name": "build123d_step_reimport_v1"
+  }
+}

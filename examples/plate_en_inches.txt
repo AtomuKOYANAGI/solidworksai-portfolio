@@ -1,0 +1,1 @@
+width 4 inch, depth 2 inch, thickness 0.5 inch plate; on the centerline, left and right by 1 inch, make diameter 0.25 inch through holes, 2 holes

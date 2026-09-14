@@ -1,0 +1,50 @@
+{
+  "base": {
+    "depth_mm": 60.0,
+    "height_mm": 10.0,
+    "kind": "box",
+    "width_mm": 100.0
+  },
+  "design_id": "plate-two-holes-04778f5c73de",
+  "features": [
+    {
+      "extent": {
+        "kind": "through_all"
+      },
+      "id": "hole_pattern_001",
+      "operation": "cut_extrude",
+      "pattern": {
+        "centered": true,
+        "direction_deg": 0.0,
+        "instances": 2,
+        "kind": "linear",
+        "spacing_mm": 60.0
+      },
+      "profile": {
+        "center_mm": [
+          0.0,
+          0.0
+        ],
+        "diameter_mm": 8.0,
+        "kind": "circle",
+        "purpose": "hole"
+      }
+    }
+  ],
+  "generation": {
+    "route": "deterministic_template",
+    "template_id": "plate_symmetric_two_holes_v1"
+  },
+  "schema_version": "fast-mvp/design-spec/1.0",
+  "source": {
+    "input_units": "mm",
+    "language": "ja",
+    "request_sha256": "04778f5c73def29bbe880731ea9611aa43b6a80edb95a0efc8cafe339e3b9c0b"
+  },
+  "units": "mm",
+  "verification": {
+    "dimension_tolerance_mm": 0.01,
+    "expected_solid_count": 1,
+    "volume_relative_tolerance": 1e-06
+  }
+}

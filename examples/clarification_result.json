@@ -1,0 +1,28 @@
+{
+  "status": "clarification_required",
+  "validation_scope": "design_spec_only",
+  "external_llm_used": false,
+  "cad_executed": false,
+  "questions": [
+    {
+      "id": "ambiguous_hole_end",
+      "field": "features[].extent.kind",
+      "question": "穴が貫通穴か止まり穴かを明記してください。"
+    },
+    {
+      "id": "missing_or_ambiguous_hole_count",
+      "field": "features[].pattern.instances",
+      "question": "穴数を1つの明確な整数で指定してください。"
+    },
+    {
+      "id": "missing_features[].profile.center_mm",
+      "field": "features[].profile.center_mm",
+      "question": "中央から左右への穴位置を単位付きで指定してください。"
+    },
+    {
+      "id": "missing_hole_centerline",
+      "field": "features[].profile.center_mm[1]",
+      "question": "穴の奥行方向位置（例: 板の中央線上）を指定してください。"
+    }
+  ]
+}

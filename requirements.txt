@@ -1,0 +1,7 @@
+# Validated with Python 3.12.14; no CAD package or model API is required.
+jsonschema==4.26.0
+attrs==26.1.0
+jsonschema-specifications==2025.9.1
+referencing==0.37.0
+rpds-py==2026.6.3
+typing-extensions==4.16.0

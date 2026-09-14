@@ -1,0 +1,77 @@
+{
+  "source_snapshot_commit": "969222c577e86bd98e5947673d1571b5c8bf9816",
+  "source_repository": "AtomuKOYANAGI/solidworksai (private)",
+  "copied_files": [
+    {
+      "source": "project/fast_mvp/errors.py",
+      "path": "swai_demo/errors.py",
+      "source_blob_sha": "345c3b940d0ce590b0183bbeb656cdc6ec3cf3d1",
+      "sha256": "05533b8930ab88a35f4051d40850144ae41b6e5c97fcb54cb1578768c2f15050",
+      "mode": "verbatim"
+    },
+    {
+      "source": "project/fast_mvp/parser.py",
+      "path": "swai_demo/parser.py",
+      "source_blob_sha": "500adbe1220ce0e3571c1fc889906d597a15c85d",
+      "sha256": "44c813c9a3b4c87651d0942b6076b5ba38509c4c097c82578daf2d4df5c091af",
+      "mode": "verbatim"
+    },
+    {
+      "source": "project/fast_mvp/controlled_parser.py",
+      "path": "swai_demo/controlled_parser.py",
+      "source_blob_sha": "00b8fd4315d07937bcc689cfdd1a43ba5af3f452",
+      "sha256": "da947672402a9929bca2d00f2f70dbecd63cdbbc5c89e920c81361c543cc3ca2",
+      "mode": "verbatim"
+    },
+    {
+      "source": "project/fast_mvp/schema.py",
+      "path": "swai_demo/schema.py",
+      "source_blob_sha": "06829bd4130e8bcb3db5bd0bdcac3d55b90231d3",
+      "sha256": "d40ca51dedaf2434573221e07aa26b5ccb39d5e604081fcfcd7cfd3aac99da27",
+      "mode": "verbatim"
+    },
+    {
+      "source": "project/fast_mvp/spec_tools.py",
+      "path": "swai_demo/spec_tools.py",
+      "source_blob_sha": "491d7f4a915b2414d69719a4a74a03c9aef96de3",
+      "sha256": "756eafe3a2d7c6e8d4c951359d03904b781d0ee21eb80556368a5b116a445673",
+      "mode": "verbatim"
+    },
+    {
+      "source": "project/fast_mvp/design_spec.schema.json",
+      "path": "swai_demo/design_spec.schema.json",
+      "source_blob_sha": "0694498fc615213288194d9fceda45d7a0cc5ad7",
+      "sha256": "64f14e7e006da1d621de0870e7f8790e98be66daf3adf2edde3701a8c51da2ad",
+      "mode": "verbatim"
+    },
+    {
+      "source": "artifacts/latest/plate-two-holes-04778f5c73de/original_request.txt",
+      "path": "examples/plate_ja.txt",
+      "source_blob_sha": "093bce063ff855bf4cac146d8512785af1ff8342",
+      "sha256": "04778f5c73def29bbe880731ea9611aa43b6a80edb95a0efc8cafe339e3b9c0b",
+      "mode": "verbatim"
+    },
+    {
+      "source": "artifacts/latest/plate-two-holes-04778f5c73de/design_spec.json",
+      "path": "evidence/plate/design_spec.json",
+      "source_blob_sha": "51801268b7a781be098f345eca8f5e4bb6987c0a",
+      "sha256": "e2d04dc2343ca8e3e3f258144739d3d6f36f7e96c86e8d54c6ee06fd278ed4a4",
+      "mode": "verbatim"
+    },
+    {
+      "source": "artifacts/latest/plate-two-holes-04778f5c73de/model.py",
+      "path": "evidence/plate/model.py",
+      "source_blob_sha": "3630dceb7841333cd1f8fdfc0bed184b63b2e0d0",
+      "sha256": "e3b47dd1643c05ac8929a2c73885088399aa31e7fa0991b6819dfb2be0c69d54",
+      "mode": "verbatim"
+    },
+    {
+      "source": "artifacts/latest/plate-two-holes-04778f5c73de/validation.json",
+      "path": "evidence/plate/step_validation.json",
+      "source_blob_sha": "34993b414ad373cb39cbff4fc6fc8e44432332b8",
+      "sha256": "02243727f4a61ec1f742bad207da94d78359a7e701111a34f427998df7e86fb8",
+      "mode": "verbatim"
+    }
+  ],
+  "note": "Snapshot commit contains the original artifacts; it is not claimed to be their execution commit."
+}
